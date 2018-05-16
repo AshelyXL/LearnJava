@@ -1,4 +1,4 @@
-package com.day1;
+package niuke;
 
 public class StringReverse {
 
