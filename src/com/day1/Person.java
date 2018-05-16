@@ -1,13 +1,22 @@
 package com.day1;
 
-
 public class Person {
-    public  static void jump(){
-        System.out.println("is now executing jump");
-        }
-    public  static void  run(){
-        jump(); //方法间进行相互调用
-        //jump()；    //可以直接简写为这种形式
-
+    String s;
+    public  Person(String str) {
+        this.s = str;
+    }
+    public void setS(String s) {
+        this.s = s;
+    }
+    public String getS() {
+        return s;
+    }
+    @Override
+    public String toString() {
+        return s;
+    }
+    public static void main(String[] args) {
+        Person p =new Person("nionfini");
+        System.out.println(p);
     }
 }
