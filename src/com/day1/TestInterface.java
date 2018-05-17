@@ -5,7 +5,7 @@ public interface TestInterface{
     void out();
     void getData(String msg);
     default void print(String...msg){
-        for(String msg:msg)
+  //      for(String msg:msg)
             System.out.println(msg);
     }
     default void test(){
