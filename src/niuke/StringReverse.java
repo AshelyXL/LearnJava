@@ -15,8 +15,8 @@ public class StringReverse {
 
     public static void main(String[] args) {
         StringReverse re = new StringReverse();   //实例化对象
-        String st = re.reverse2("I am a student");  //返回string类型，保存在st中
-        System.out.println(st);
+        String s_fan = re.reverse2("I am a student");  //执行方法，返回string类型，保存在st中
+        System.out.println(s_fan);
     }
 
 }

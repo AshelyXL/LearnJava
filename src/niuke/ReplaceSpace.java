@@ -14,7 +14,7 @@ public class ReplaceSpace {
     }
 
     public static void main(String[] args) {
-        StringBuffer str = new StringBuffer("nihao  zaijan");
+        StringBuffer str = new StringBuffer("nihao zaijan heheda");
         ReplaceSpace re = new ReplaceSpace();
         System.out.println(re.replaceSpace(str));
     }
