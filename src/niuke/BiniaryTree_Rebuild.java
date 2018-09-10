@@ -23,16 +23,16 @@ public class BiniaryTree_Rebuild {
     private TreeNode reConstructBinaryTree(int[] pre,int startPre,int endPre,int[] in,int startIn,int endIn) {
         if(startPre>endPre||startIn>endIn)
             return null;
-        TreeNode root=new TreeNode(pre[startPre]);
+        TreeNode tree=new TreeNode(pre[startPre]);
         //检查中序遍历数组in中的各个变量
         for(int i=startIn;i<=endIn;i++)
             if(in[i]==pre[startPre]){
                 //在中序遍历中找到根节点，左边为左子树，右边为右边子树
                 //之后分别在左右子树进行递归
-                root.left=reConstructBinaryTree(pre,startPre+1,startPre+(i-startIn),in,startIn,i-1);
-                root.right=reConstructBinaryTree(pre,startPre+(i-startIn)+1,endPre,in,i+1,endIn);
+                tree.left=reConstructBinaryTree(pre,startPre+1,startPre+(i-startIn),in,startIn,i-1);
+                tree.right=reConstructBinaryTree(pre,startPre+(i-startIn)+1,endPre,in,i+1,endIn);
         }
-        return root;
+        return tree;
     }
 
     public static void main(String[] args) {
