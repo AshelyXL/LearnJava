@@ -16,17 +16,19 @@ class TreeNode {
 
 public class BiniaryTree_Rebuild {
     public TreeNode reConstructBinaryTree(int[] pre,int[] in) {
-        TreeNode root=reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);
-        return root;
+        TreeNode tree=reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);
+        return tree;
     }
     //前序遍历pre={1,2,4,7,3,5,6,8}和中序遍历序列in={4,7,2,1,5,3,8,6}
     private TreeNode reConstructBinaryTree(int[] pre,int startPre,int endPre,int[] in,int startIn,int endIn) {
         if(startPre>endPre||startIn>endIn)
             return null;
         TreeNode root=new TreeNode(pre[startPre]);
-        //检查中序数组in中的各个变量
+        //检查中序遍历数组in中的各个变量
         for(int i=startIn;i<=endIn;i++)
             if(in[i]==pre[startPre]){
+                //在中序遍历中找到根节点，左边为左子树，右边为右边子树
+                //之后分别在左右子树进行递归
                 root.left=reConstructBinaryTree(pre,startPre+1,startPre+(i-startIn),in,startIn,i-1);
                 root.right=reConstructBinaryTree(pre,startPre+(i-startIn)+1,endPre,in,i+1,endIn);
         }
