@@ -2,8 +2,6 @@ package niuke;
 import java.util.ArrayList;
 import java.util.Stack;
 
-//输入一个链表，按链表值从尾到头的顺序返回一个ArrayList
-
 //定义链表节点类：包含val和next属性
 class ListNode {
         int val;
@@ -15,7 +13,8 @@ class ListNode {
     }
 
 public class ArrayList_Reverse {
-    //定义方法：从尾到头输出
+
+    //输入一个链表，按链表值从尾到头的顺序返回一个ArrayList
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         Stack<Integer> stack = new Stack<>();
         while (listNode != null) {
@@ -30,6 +29,25 @@ public class ArrayList_Reverse {
         return list;
     }
 
+    public ListNode find_K_FromTail(ListNode head, int k){
+        //输入一个链表，输出该链表中倒数第k个结点    0,1,2,3,4,5,6
+        if(head == null )
+            return head;
+        ListNode p,q;
+        p = q  = head;
+        int i = 0;
+        while (p.next != null){
+            p = p.next;
+            i++;
+        }
+        if(k > i+1)         //{2,5,7,9}  4
+            return null;
+        for(int j = 0; j < i+1-k; j++){     //{1}  0
+            q = q.next;
+        }
+        return q;
+    }
+
     public static void main(String[] args) {
         //创建链表对象
         ListNode l3 = new ListNode(3,null);
@@ -38,5 +56,7 @@ public class ArrayList_Reverse {
         ArrayList_Reverse ar = new ArrayList_Reverse();
         //System.out.println(l1.val +" "+ l1.next.val);
         System.out.println(ar.printListFromTailToHead(l1));
+
+        System.out.println(ar.find_K_FromTail(l1,3).val);
     }
 }
